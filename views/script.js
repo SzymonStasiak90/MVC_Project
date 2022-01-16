@@ -1,4 +1,5 @@
-const cors = require('cors');
+//const cors = require('cors');
+//import axios from 'axios';
 
 let todoInput       // tresc zadania
 let errorInfo       // informacja o braku zadan
@@ -20,8 +21,8 @@ const main =() => {
     fechNotes()
 }
 
-fechNotes() {
-    
+const fechNotes = () => {
+    const res = axios.get('http://localhost:3003/api/notes'); // a co jesli dostanie inny port ?
 }
 
 
@@ -124,7 +125,7 @@ const changeTodoText = () => {
 }
 
 const deleteTodo =(e) => {
-    
+
 }
 
 
