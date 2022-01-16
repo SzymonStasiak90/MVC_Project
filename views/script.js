@@ -1,5 +1,3 @@
-//const cors = require('cors');
-//import axios from 'axios';
 
 let todoInput       // tresc zadania
 let errorInfo       // informacja o braku zadan
@@ -18,15 +16,12 @@ let popupCloseBtn  // przycisk anuluj
 const main =() => {
     prepare_Elements()
     prepare_Events()
-    fechNotes()
-}
-
-const fechNotes = () => {
-    const res = axios.get('http://localhost:3003/api/notes'); // a co jesli dostanie inny port ?
 }
 
 
-
+let response = fetch('http://localhost:3003/api/notes')
+        .then(response => response.json())
+        .then(data => console.log(data));
 
 
 
@@ -96,9 +91,9 @@ const checkToggleBtn = e => {
         e.target.closest('li').classList.toggle('completed')
         e.target.classList.toggle('completed')
     }else if(e.target.matches('.edit')) {
-        editTodo(e)
+        editTodo(e);
     }else if (e.target.matches('.delete')) {
-        console.log('delete');
+        deleteTodo(e);
     }
 }
 
@@ -125,7 +120,7 @@ const changeTodoText = () => {
 }
 
 const deleteTodo =(e) => {
-
+    e.target.closest('li').remove();
 }
 
 
