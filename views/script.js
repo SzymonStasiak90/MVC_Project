@@ -23,7 +23,8 @@ let response = fetch('http://localhost:3003/api/notes')
         .then(response => response.json())
         .then(data => console.log(data));
 
-
+        const notes = response.data;
+        console.log(notes);
 
 const prepare_Elements =() => {
     todoInput      = document.querySelector('.todo-input');

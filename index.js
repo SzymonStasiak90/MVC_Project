@@ -4,8 +4,6 @@ const {port} = require('./models/config');
 const apiRouter = require('./routes/api');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // biblioteka zezwala na polaczenie backendu z frontem na innym porcie
-const router = require('./routes/api');
-const note_actions = require('./controllers/note_actions');
 
 // fix na corss issue
 app.use(cors());
@@ -16,23 +14,19 @@ app.use(bodyParser.json());
 // dodanie routingu
 app.use('/api', apiRouter);
 
+//app.use(express.urlencoded({extended: false}))
 
 
 // dodanie frontu  - ejs
 app.set('view engine','ejs');
 app.get('/',(req,res) => {
 
-    const notes = note_actions;
-
-    // const notes = [{
-    //     input: 'Test Article'
-    // }]
+    //const notes = note_actions;
+    const notes = [{ notes
+    }]
 
   res.render('index', {notes:notes})
 })
-
-
-app.get('/notes')
 
 
 
